@@ -1,4 +1,4 @@
-npm-debug.log*
-public/build
+dist
 node_modules
-.npm
+yarn-error.log
+.DS_Store
