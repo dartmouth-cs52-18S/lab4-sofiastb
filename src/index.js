@@ -1,10 +1,8 @@
-// change require to es6 import style
-import $ from 'jquery';
-import './style.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-let num = 0;
+const App = () => {
+  return <div className="test">All the React are belong to us!</div>;
+};
 
-setInterval(() => {
-  $('#main').html(`You've been on this page for ${num} seconds.`);
-  num += 1;
-}, 1000);
+ReactDOM.render(<App />, document.getElementById('main'));
