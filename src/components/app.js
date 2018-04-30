@@ -4,8 +4,6 @@ import '../style.scss';
 import Post from './post';
 import NewPost from './new_post';
 import Posts from './posts';
-// import Counter from '../containers/counter';
-// import Controls from '../containers/controls';
 
 const Nav = (props) => {
   return (

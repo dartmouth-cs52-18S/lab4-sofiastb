@@ -16,7 +16,6 @@ export function fetchPosts() {
   /* axios get */
   return (dispatch) => {
     axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
-      // do something with response.data  (some json)
       dispatch({ type: ActionTypes.FETCH_POSTS, payload: { response } });
     }).catch((error) => {
       console.log('error fetching posts');
@@ -29,11 +28,12 @@ export function createPost(post, history) {
   const fields = {
     title: post.title, content: post.content, tags: post.tags, coverImage: post.coverImage,
   };
+
   return (dispatch) => {
     axios.post(`${ROOT_URL}/posts${API_KEY}`, fields).then((response) => {
       history.push('/');
     }).catch((error) => {
-      console.log('error creating post');
+      console.log(error);
     });
   };
 }

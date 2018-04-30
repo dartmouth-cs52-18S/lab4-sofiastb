@@ -6,12 +6,13 @@ const initialState = {
   post: {},
 };
 
+// I used this article to better understand dispatch: https://medium.com/@colinlmcdonald/basic-api-call-in-react-with-redux-and-intro-to-thunk-middleware-bd5244cef180
 const PostsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.FETCH_POSTS:
-      return PostFunctions.fetchPosts();
+      return PostFunctions.dispatch(state.all);
     case ActionTypes.FETCH_POST:
-      return null;
+      return PostFunctions.dispatch(state.post);
     default:
       return state;
   }

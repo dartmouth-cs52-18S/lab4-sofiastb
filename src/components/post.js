@@ -4,10 +4,10 @@ class Post extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Test Post Title',
-      tags: 'test',
-      coverImage: 'https://www.fourseasons.com/alt/img-opt/~70.1002/publish/content/dam/fourseasons_magazine/SEW/seattle-skyline-1600x900.jpg',
-      content: 'This is a test note content',
+      title: '',
+      tags: '',
+      coverImage: '',
+      content: '',
     };
   }
 

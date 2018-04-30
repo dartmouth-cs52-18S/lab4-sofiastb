@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import fetchPosts from '../actions/index';
 
 class Posts extends Component {
   constructor(props) {
@@ -6,6 +9,10 @@ class Posts extends Component {
     this.state = {
       // posts: [],
     };
+  }
+
+  componentWillMount() {
+    this.props.fetchPosts();
   }
 
   render() {
@@ -17,4 +24,4 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+export default withRouter(connect(null, { fetchPosts })(Posts));
