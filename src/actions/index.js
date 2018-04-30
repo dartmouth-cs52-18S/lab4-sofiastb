@@ -26,7 +26,7 @@ export function fetchPosts() {
 export function createPost(post, history) {
   /* axios post */
   const fields = {
-    title: post.title, content: post.content, tags: post.tags, coverImage: post.coverImage,
+    title: post.title, content: post.content, tags: post.tags, cover_url: post.coverImage,
   };
 
   return (dispatch) => {

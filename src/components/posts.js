@@ -7,32 +7,31 @@ class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: this.props.all || [],
     };
 
     this.renderPosts = this.renderPosts.bind(this);
   }
 
   componentWillMount() {
-    this.setState({ posts: this.props.fetchPosts() });
+    this.props.fetchPosts();
   }
 
   // used this article to see how to iterate over an array in react https://thinkster.io/tutorials/iterating-and-rendering-loops-in-react
   // used this StackOverflow post to see why the 'map' property was undefined: https://stackoverflow.com/questions/44447825/react-js-cannot-read-property-map-of-undefined
   renderPosts() {
-    console.log('test');
-    const posts = this.state.posts.map((post) => {
-      console.log(post);
-      return (
-        <div className="post">
-          <h1>post.title</h1>
-          <h2>post.tags</h2>
-          <p>post.content</p>
-        </div>
-      );
-    });
-
-    return <div>{posts}</div>;
+    return (
+      this.props.allPosts.map((post) => {
+        console.log(post);
+        return (
+          <div className="post">
+            <img src={post.cover_url} alt={post.title} />
+            <h1>{post.title}</h1>
+            <h2>{post.tags}</h2>
+            <p>{post.content}</p>
+          </div>
+        );
+      })
+    );
   }
 
   render() {
@@ -44,4 +43,9 @@ class Posts extends Component {
   }
 }
 
-export default withRouter(connect(null, { fetchPosts })(Posts));
+// connects particular parts of redux state to this components props
+const mapStateToProps = state => ({
+  allPosts: state.posts.all,
+});
+
+export default withRouter(connect(mapStateToProps, { fetchPosts })(Posts));

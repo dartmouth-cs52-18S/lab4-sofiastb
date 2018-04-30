@@ -1,5 +1,9 @@
 body, html {
-  background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
+  // getting gradient background to extend for the whole view was done using
+  // https://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats
+  background: linear-gradient(to bottom, #ffffff 0%,#F5F5F5 40%,#DCDCDC 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: "Roboto", sans-serif;
   height: 100%;
   margin: 0;
@@ -25,13 +29,46 @@ ul li:last-child {
   color: pink;
 }
 
+#main {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 #post-forms {
   display: flex;
 }
 
-.note {
+#posts {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post {
   background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px #BEBEBE;
   display: flex;
   flex-direction: column;
+  margin: 2rem;
   width: 25rem;
+}
+
+.post img {
+  height: 100%;
+}
+
+.post h1, h2, p {
+  margin: 1rem;
+}
+
+#new_post {
+  align-self: center;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80rem;
 }
