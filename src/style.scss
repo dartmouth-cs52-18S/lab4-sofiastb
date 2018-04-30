@@ -28,3 +28,10 @@ ul li:last-child {
 #post-forms {
   display: flex;
 }
+
+.note {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+}
