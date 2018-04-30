@@ -18,7 +18,7 @@ export function fetchPosts() {
     axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
       dispatch({ type: ActionTypes.FETCH_POSTS, payload: { response } });
     }).catch((error) => {
-      console.log('error fetching posts');
+      console.log(error);
     });
   };
 }
@@ -47,7 +47,7 @@ export function updatePost(post) {
     axios.put(`${ROOT_URL}/posts${API_KEY}`, fields).then((response) => {
       console.log(response);
     }).catch((error) => {
-      console.log('error updating post');
+      console.log(error);
     });
   };
 }
@@ -58,7 +58,7 @@ export function fetchPost(id) {
     axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
       dispatch({ type: ActionTypes.FETCH_POST, payload: { response } });
     }).catch((error) => {
-      console.log('error fetching post');
+      console.log(error);
     });
   };
 }
@@ -69,7 +69,7 @@ export function deletePost(id, history) {
     axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
       history.push('/');
     }).catch((error) => {
-      console.log('error deleting post');
+      console.log(error);
     });
   };
 }

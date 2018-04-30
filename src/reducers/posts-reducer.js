@@ -1,18 +1,19 @@
 import { ActionTypes } from '../actions';
-import PostFunctions from '../reducers/posts-reducer';
 
 const initialState = {
   all: [],
   post: {},
 };
 
-// I used this article to better understand dispatch: https://medium.com/@colinlmcdonald/basic-api-call-in-react-with-redux-and-intro-to-thunk-middleware-bd5244cef180
+// I used these two articles to better understand dispatch:
+// https://medium.com/@colinlmcdonald/basic-api-call-in-react-with-redux-and-intro-to-thunk-middleware-bd5244cef180
+// https://stackoverflow.com/questions/43246882/what-are-store-dispatch-payloads-types-actions-connect-thunk-reducers-in
 const PostsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.FETCH_POSTS:
-      return PostFunctions.dispatch(state.all);
+      return Object.assign({}, state, { all: action.payload.data });
     case ActionTypes.FETCH_POST:
-      return PostFunctions.dispatch(state.post);
+      return Object.assign({}, state, { post: action.payload.data });
     default:
       return state;
   }
