@@ -49,6 +49,17 @@ h1 {
  font-size: 36px;
 }
 
+.lnr {
+  font-size: 32px;
+  padding: 2rem;
+  transition: .5s;
+}
+
+.lnr:hover {
+  color: #ff7f7f;
+  cursor: pointer;
+}
+
 #title {
   font-family: 'Libre Baskerville', serif;
   font-size: 48px;
@@ -126,6 +137,12 @@ h1 {
   margin-top: 0;
 }
 
+#post-view {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+
 .singular-post {
   background-color: white;
   box-shadow: 0px 0px 10px #BEBEBE;
@@ -137,6 +154,12 @@ h1 {
 
 .singular-post img {
   width: 100%;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
 }
 
 #new_post {
