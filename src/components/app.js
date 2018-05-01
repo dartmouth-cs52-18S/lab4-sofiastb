@@ -10,7 +10,7 @@ const Nav = (props) => {
     <nav>
       <ul>
         <li><NavLink id="title" to="/" exact>Redux</NavLink></li>
-        <li><NavLink id="new" to="/posts/new">New Post</NavLink></li>
+        <li><NavLink id="new" to="/posts/new">New post</NavLink></li>
       </ul>
     </nav>
   );
@@ -29,6 +29,7 @@ const App = (props) => {
             <Route render={() => (<div>post not found </div>)} />
           </Switch>
         </div>
+        <footer />
       </div>
     </Router>
   );

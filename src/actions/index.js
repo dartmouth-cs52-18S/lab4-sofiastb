@@ -38,24 +38,26 @@ export function createPost(post, history) {
   };
 }
 
-export function updatePost(post) {
-  /* axios put */
-  const fields = {
-    title: post.title, content: post.content, tags: post.tags, coverImage: post.coverImage,
-  };
+export function fetchPost(id) {
+  /* axios get */
   return (dispatch) => {
-    axios.put(`${ROOT_URL}/posts${API_KEY}`, fields).then((response) => {
-      console.log(response);
+    axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
+      dispatch({ type: ActionTypes.FETCH_POST, payload: { response } });
     }).catch((error) => {
       console.log(error);
     });
   };
 }
 
-export function fetchPost(id) {
-  /* axios get */
+export function updatePost(id, post) {
+  console.log('updating');
+  /* axios put */
+  const fields = {
+    title: post.title, content: post.content, tags: post.tags, cover_url: post.coverImage,
+  };
   return (dispatch) => {
-    axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
+    axios.put(`${ROOT_URL}/posts/${id}${API_KEY}`, fields).then((response) => {
+      console.log('updated, now fetching');
       dispatch({ type: ActionTypes.FETCH_POST, payload: { response } });
     }).catch((error) => {
       console.log(error);

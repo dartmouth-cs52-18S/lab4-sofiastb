@@ -13,3 +13,4 @@ Sofia Stanescu-Bellu
 * [Redux API docs](https://github.com/reactjs/react-redux/blob/master/docs/api.md)
 * [CSS3 gradient background set on body doesn't stretch but instead repeats](https://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats)
 * [How to pass data through my React router with React.js](https://stackoverflow.com/questions/45069824/how-to-pass-data-through-my-react-router-with-reactjs)
+* [React onClickOutside Package](https://github.com/Pomax/react-onclickoutside)
