@@ -53,6 +53,10 @@ footer {
   height: 10vh;
 }
 
+input, textarea {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .lnr {
   font-size: 32px;
   padding: 2rem;
@@ -94,7 +98,7 @@ footer {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 5vh;
   width: 100%;
 }
 
@@ -105,6 +109,17 @@ footer {
 
 #post-forms {
   display: flex;
+}
+
+#posts-title {
+  border-bottom: 1px solid lightgrey;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  padding-bottom: 1vh;
 }
 
 #posts {
@@ -157,7 +172,7 @@ footer {
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
   margin-bottom: 3rem;
-  min-height: 70vh;
+  min-height: 75vh;
   width: 60%;
 }
 
@@ -168,6 +183,35 @@ footer {
 .singular-post .tags {
   color: #C0C0C0;
   font-size: 16px;
+}
+
+.singular-post form {
+  display: flex;
+  margin-top: 0;
+  width: 99%;
+}
+
+.singular-post .form-group {
+  width: 100%;
+}
+
+.title-input, .tags-input {
+  align-self: center;
+  font-size: 36px;
+  height: 5vh;
+  margin-top: 0;
+  width: 100%;
+}
+
+.tags-input {
+  font-size: 28px;
+}
+
+textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  min-height: 10%;
+  max-width: 99%;
 }
 
 #controls {

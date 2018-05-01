@@ -39,8 +39,11 @@ class Posts extends Component {
 
   render() {
     return (
-      <div id="posts">
-        {this.renderPosts()}
+      <div>
+        <h1 id="posts-title">Posts</h1>
+        <div id="posts">
+          {this.renderPosts()}
+        </div>
       </div>
     );
   }

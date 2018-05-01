@@ -120,6 +120,7 @@ class Post extends Component {
         <form>
           <FormGroup>
             <FormControl
+              className="title-input"
               type="text"
               value={this.state.localTitle}
               onChange={this.onTitleChange}
@@ -152,6 +153,7 @@ class Post extends Component {
         <form>
           <FormGroup>
             <FormControl
+              className="tags-input"
               type="text"
               value={this.state.localTags}
               onChange={this.onTagsChange}
