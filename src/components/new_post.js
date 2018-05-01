@@ -57,6 +57,7 @@ class NewPost extends Component {
         <form>
           <FormGroup>
             <FormControl
+              className="form"
               type="text"
               value={this.state.title}
               placeholder="Post title"
@@ -65,6 +66,7 @@ class NewPost extends Component {
           </FormGroup>
           <FormGroup>
             <FormControl
+              className="form"
               type="text"
               value={this.state.tags}
               placeholder="Post tags"
@@ -73,6 +75,7 @@ class NewPost extends Component {
           </FormGroup>
           <FormGroup>
             <FormControl
+              className="form"
               type="text"
               value={this.state.content}
               placeholder="Post content"
@@ -81,6 +84,7 @@ class NewPost extends Component {
           </FormGroup>
           <FormGroup>
             <FormControl
+              className="form"
               type="text"
               value={this.state.coverImage}
               placeholder="Cover image url"
@@ -88,7 +92,7 @@ class NewPost extends Component {
             />
           </FormGroup>
         </form>
-        <Button onClick={this.newPost}>
+        <Button className="button" onClick={this.newPost}>
           Create Post
         </Button>
       </div>
