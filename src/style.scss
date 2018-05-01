@@ -4,7 +4,6 @@ body, html {
   background: linear-gradient(to bottom, #ffffff 0%,#F5F5F5 40%,#DCDCDC 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  font-family: "Roboto", sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -15,18 +14,61 @@ ul {
   justify-content: space-between;
   list-style-type: none;
   padding-left: 0;
+  margin-top: 1.5rem;
 }
 
 ul li {
   margin-right: 2rem;
+  text-decoration: none;
 }
 
 ul li:last-child {
+  align-items: center;
+  display: flex;
   margin-right: 0;
+  justify-content: center;
 }
 
-.active {
-  color: pink;
+ul li a {
+  text-decoration: none;
+}
+
+ul li a:visited {
+  color: black;
+}
+
+img {
+  object-fit: cover;
+}
+
+h1, h2, p {
+ margin: 1rem;
+}
+
+h1 {
+ font-size: 36px;
+}
+
+#title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 48px;
+  margin: 2rem;
+}
+
+#new {
+  background-color: #ff7f7f;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 1.5rem;
+  padding: 1rem;
+}
+
+#new:hover {
+  box-shadow: 1px 2px 10px #BEBEBE;
+  cursor: pointer;
 }
 
 #content {
@@ -62,23 +104,36 @@ ul li:last-child {
   box-shadow: 2px 3px 10px #BEBEBE;
   display: flex;
   flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
   margin: 2rem;
-  width: 25rem;
+  transition: .5s;
+  width: 30rem;
+}
+
+.post:hover {
+  box-shadow: 2px 3px 20px grey;
+  cursor: pointer;
 }
 
 .post img {
   height: 100%;
 }
 
-.post h1, h2, p {
-  margin: 1rem;
+.post h2 {
+  font-weight: 400;
+  margin-top: 0;
 }
 
 .singular-post {
   background-color: white;
   box-shadow: 0px 0px 10px #BEBEBE;
-  height: 90vh;
+  font-family: 'Open Sans', sans-serif;
+  height: 80vh;
   width: 70%;
+}
+
+.singular-post img {
+  width: 100%;
 }
 
 #new_post {

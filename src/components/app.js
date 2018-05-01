@@ -9,8 +9,8 @@ const Nav = (props) => {
   return (
     <nav>
       <ul>
-        <li><NavLink to="/" exact>My Redux Blog</NavLink></li>
-        <li><NavLink to="/posts/new">New Post</NavLink></li>
+        <li><NavLink id="title" to="/" exact>Redux</NavLink></li>
+        <li><NavLink id="new" to="/posts/new">New Post</NavLink></li>
       </ul>
     </nav>
   );
