@@ -10,10 +10,15 @@ class Posts extends Component {
     };
 
     this.renderPosts = this.renderPosts.bind(this);
+    this.navigateToPost = this.navigateToPost.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchPosts();
+  }
+
+  navigateToPost(id) {
+    this.props.history.push(`/posts/${id}`);
   }
 
   // used this article to see how to iterate over an array in react https://thinkster.io/tutorials/iterating-and-rendering-loops-in-react
@@ -21,13 +26,11 @@ class Posts extends Component {
   renderPosts() {
     return (
       this.props.allPosts.map((post) => {
-        console.log(post);
         return (
-          <div className="post">
+          <div className="post" role="button" tabIndex={-1} onClick={() => { this.navigateToPost(post.id); }}>
             <img src={post.cover_url} alt={post.title} />
             <h1>{post.title}</h1>
             <h2>{post.tags}</h2>
-            <p>{post.content}</p>
           </div>
         );
       })

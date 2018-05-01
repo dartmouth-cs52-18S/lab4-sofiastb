@@ -74,17 +74,17 @@ class NewPost extends Component {
           <FormGroup>
             <FormControl
               type="text"
-              value={this.state.coverImage}
+              value={this.state.content}
               placeholder="Post content"
-              onChange={this.onImageURLChange}
+              onChange={this.onContentChange}
             />
           </FormGroup>
           <FormGroup>
             <FormControl
               type="text"
-              value={this.state.content}
+              value={this.state.coverImage}
               placeholder="Cover image url"
-              onChange={this.onContentChange}
+              onChange={this.onImageURLChange}
             />
           </FormGroup>
         </form>

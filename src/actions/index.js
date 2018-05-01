@@ -10,7 +10,7 @@ export const ActionTypes = {
 };
 
 const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
-const API_KEY = '?key=s_stanescu-bellu';
+const API_KEY = '?key=sofia_stanescu-bellu';
 
 export function fetchPosts() {
   /* axios get */

@@ -19,14 +19,16 @@ const Nav = (props) => {
 const App = (props) => {
   return (
     <Router>
-      <div>
+      <div id="content">
         <Nav />
-        <Switch>
-          <Route exact path="/" component={Posts} />
-          <Route path="/posts/new" component={NewPost} />
-          <Route path="/posts/:postID" component={Post} />
-          <Route render={() => (<div>post not found </div>)} />
-        </Switch>
+        <div id="container">
+          <Switch>
+            <Route exact path="/" component={Posts} />
+            <Route path="/posts/new" component={NewPost} />
+            <Route path="/posts/:postID" component={Post} />
+            <Route render={() => (<div>post not found </div>)} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
