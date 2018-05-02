@@ -2,7 +2,10 @@
 ## Author 👩🏻‍💻
 Sofia Stanescu-Bellu
 
+## Descr
+
 ## Sources
+* Tim helped me with the `mapStateToProps` for my `post.js` file and with my `posts-reducer.js`!
 * [Basic API call in React with Redux and intro to Thunk middleware](https://medium.com/@colinlmcdonald/basic-api-call-in-react-with-redux-and-intro-to-thunk-middleware-bd5244cef180)
 * [Iterating and rendering loops in React](https://thinkster.io/tutorials/iterating-and-rendering-loops-in-react)
 * [Can I dispatch an action in a reducer?](https://stackoverflow.com/questions/36730793/can-i-dispatch-an-action-in-reducer)

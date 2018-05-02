@@ -21,7 +21,6 @@ class Post extends Component {
       localTitle: props.selectedPost.title,
       localContent: props.selectedPost.content,
       localTags: props.selectedPost.tags,
-      // coverImage: '',
     };
 
     // cover photo
