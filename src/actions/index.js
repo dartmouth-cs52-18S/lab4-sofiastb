@@ -53,7 +53,7 @@ export function updatePost(id, post) {
   console.log('updating');
   /* axios put */
   const fields = {
-    title: post.title, content: post.content, tags: post.tags, cover_url: post.coverImage,
+    title: post.title, content: post.content, tags: post.tags, cover_url: post.cover_url,
   };
   return (dispatch) => {
     axios.put(`${ROOT_URL}/posts/${id}${API_KEY}`, fields).then((response) => {

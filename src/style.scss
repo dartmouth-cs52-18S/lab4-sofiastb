@@ -195,12 +195,16 @@ input, textarea {
   width: 100%;
 }
 
-.title-input, .tags-input {
+.title-input, .tags-input, .coverphoto-input {
   align-self: center;
   font-size: 36px;
   height: 5vh;
   margin-top: 0;
   width: 100%;
+}
+
+.coverphoto-input {
+  font-size: 20px;
 }
 
 .tags-input {

@@ -12,15 +12,21 @@ class Post extends Component {
     super(props);
     this.state = {
       // isEditing booleans
+      isEditingCoverPhoto: false,
       isEditingTitle: false,
       isEditingContent: false,
       isEditingTags: false,
       // local vars
+      localCoverPhoto: props.selectedPost.cover_url,
       localTitle: props.selectedPost.title,
       localContent: props.selectedPost.content,
       localTags: props.selectedPost.tags,
       // coverImage: '',
     };
+
+    // cover photo
+    this.editCoverPhoto = this.editCoverPhoto.bind(this);
+    this.onCoverPhotoChange = this.onCoverPhotoChange.bind(this);
 
     // title
     this.editTitle = this.editTitle.bind(this);
@@ -47,6 +53,12 @@ class Post extends Component {
   }
 
   // onChange
+  onCoverPhotoChange(event) {
+    event.preventDefault();
+    console.log(event.target.value);
+    this.setState({ localCoverPhoto: event.target.value });
+  }
+
   onTitleChange(event) {
     event.preventDefault();
     this.setState({ localTitle: event.target.value });
@@ -63,6 +75,16 @@ class Post extends Component {
   }
 
   // set editing status
+  editCoverPhoto(event) {
+    event.preventDefault();
+    if (this.state.isEditingCoverPhoto) {
+      this.setState({ isEditingCoverPhoto: false });
+    } else {
+      console.log(this.props.selectedPost.cover_url);
+      this.setState({ isEditingCoverPhoto: true, localCoverPhoto: this.props.selectedPost.cover_url });
+    }
+  }
+
   editTitle(event) {
     event.preventDefault();
     if (this.state.isEditingTitle) {
@@ -97,9 +119,14 @@ class Post extends Component {
   }
 
   handleClickOutside(event) {
+    console.log(this.state.localCoverPhoto);
     this.props.updatePost(this.props.match.params.postID, {
-      title: this.state.localTitle, content: this.state.localContent, cover_url: this.props.selectedPost.cover_url, tags: this.state.localTags,
+      title: this.state.localTitle, content: this.state.localContent, cover_url: this.state.localCoverPhoto, tags: this.state.localTags,
     });
+
+    if (this.state.isEditingCoverPhoto) {
+      this.setState({ isEditingCoverPhoto: false });
+    }
 
     if (this.state.isEditingTitle) {
       this.setState({ isEditingTitle: false });
@@ -111,6 +138,27 @@ class Post extends Component {
 
     if (this.state.isEditingContent) {
       this.setState({ isEditingContent: false });
+    }
+  }
+
+  // render content
+  renderCoverPhoto() {
+    if (this.state.isEditingCoverPhoto) {
+      return (
+        <form>
+          <FormGroup>
+            <FormControl
+              className="coverphoto-input"
+              type="text"
+              value={this.state.localCoverPhoto}
+              onChange={this.onCoverPhotoChange}
+            />
+          </FormGroup>
+        </form>
+      );
+    } else {
+      console.log(this.props.selectedPost.cover_url);
+      return <img onClick={this.editCoverPhoto} src={this.props.selectedPost.cover_url} alt={this.props.selectedPost.cover_url} />;
     }
   }
 
@@ -133,7 +181,6 @@ class Post extends Component {
     }
   }
 
-  // update body
   renderContent() {
     if (this.state.isEditingContent) {
       return <Textarea className="content editing" onChange={this.onContentChange} value={this.state.localContent} />;
@@ -170,7 +217,7 @@ class Post extends Component {
     return (
       <div id="post-view">
         <div className="singular-post">
-          <img src={this.props.selectedPost.cover_url} alt={this.props.selectedPost.title} />
+          {this.renderCoverPhoto()}
           {this.renderTitle()}
           {this.renderContent()}
           {this.renderTags()}
