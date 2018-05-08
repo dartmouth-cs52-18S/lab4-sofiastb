@@ -17,10 +17,10 @@ class Post extends Component {
       isEditingContent: false,
       isEditingTags: false,
       // local vars
-      localCoverPhoto: props.selectedPost.cover_url,
-      localTitle: props.selectedPost.title,
-      localContent: props.selectedPost.content,
-      localTags: props.selectedPost.tags,
+      localCoverPhoto: '',
+      localTitle: '',
+      localContent: '',
+      localTags: '',
     };
 
     // cover photo
@@ -47,14 +47,12 @@ class Post extends Component {
 
   // getting the id was done usint this StackOverflow post: https://stackoverflow.com/questions/45069824/how-to-pass-data-through-my-react-router-with-reactjs
   componentDidMount() {
-    console.log('mounting');
     this.props.fetchPost(this.props.match.params.postID);
   }
 
   // onChange
   onCoverPhotoChange(event) {
     event.preventDefault();
-    console.log(event.target.value);
     this.setState({ localCoverPhoto: event.target.value });
   }
 
@@ -76,37 +74,28 @@ class Post extends Component {
   // set editing status
   editCoverPhoto(event) {
     event.preventDefault();
-    if (this.state.isEditingCoverPhoto) {
-      this.setState({ isEditingCoverPhoto: false });
-    } else {
-      console.log(this.props.selectedPost.cover_url);
+    if (!this.state.isEditingCoverPhoto) {
       this.setState({ isEditingCoverPhoto: true, localCoverPhoto: this.props.selectedPost.cover_url });
     }
   }
 
   editTitle(event) {
     event.preventDefault();
-    if (this.state.isEditingTitle) {
-      this.setState({ isEditingTitle: false });
-    } else {
+    if (!this.state.isEditingTitle) {
       this.setState({ isEditingTitle: true, localTitle: this.props.selectedPost.title });
     }
   }
 
   editContent(event) {
     event.preventDefault();
-    if (this.state.isEditingContent) {
-      this.setState({ isEditingContent: false });
-    } else {
+    if (!this.state.isEditingContent) {
       this.setState({ isEditingContent: true, localContent: this.props.selectedPost.content });
     }
   }
 
   editTags(event) {
     event.preventDefault();
-    if (this.state.isEditingTags) {
-      this.setState({ isEditingTags: false });
-    } else {
+    if (!this.state.isEditingTags) {
       this.setState({ isEditingTags: true, localTags: this.props.selectedPost.tags });
     }
   }
@@ -118,9 +107,31 @@ class Post extends Component {
   }
 
   handleClickOutside(event) {
-    console.log(this.state.localCoverPhoto);
+    const post = {
+      title: this.props.selectedPost.title,
+      content: this.props.selectedPost.content,
+      tags: this.props.selectedPost.tags,
+      cover_url: this.props.selectedPost.cover_url,
+    };
+
+    if (this.state.localCoverPhoto !== '') {
+      post.cover_url = this.state.localCoverPhoto;
+    }
+
+    if (this.state.localTitle !== '') {
+      post.title = this.state.localTitle;
+    }
+
+    if (this.state.localContent !== '') {
+      post.content = this.state.localContent;
+    }
+
+    if (this.state.localTags !== '') {
+      post.tags = this.state.localTags;
+    }
+
     this.props.updatePost(this.props.match.params.postID, {
-      title: this.state.localTitle, content: this.state.localContent, cover_url: this.state.localCoverPhoto, tags: this.state.localTags,
+      title: post.title, content: post.content, cover_url: post.cover_url, tags: post.tags,
     });
 
     if (this.state.isEditingCoverPhoto) {
@@ -156,7 +167,6 @@ class Post extends Component {
         </form>
       );
     } else {
-      console.log(this.props.selectedPost.cover_url);
       return <img onClick={this.editCoverPhoto} src={this.props.selectedPost.cover_url} alt={this.props.selectedPost.cover_url} />;
     }
   }
