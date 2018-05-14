@@ -11,7 +11,7 @@ Redux was rough 😅. This was the hardest lab by far and I struggled to underst
 The biggest struggle for me was the flow of data – I couldn't grasp how data flowed from one section of the app to another via Redux and I needed some help from Tim to get somewhat of a hang on it. I still think I have a ways to go before I'm fully comfortable with Redux and I'm not sure I'd choose Redux over React, but this lab was certainly helpful as a crash course into this new language and its capabilities.
 
 ### What worked
-The API part of the lab went pretty smoothly. It did help that I've done work with APIs in the past and I understood the basic concepts well, but surprisingly, the API components were the less difficult aspects of the lab to implement (difficult because of Redux 😬). 
+The API part of the lab went pretty smoothly. It did help that I've done work with APIs in the past and I understood the basic concepts well, but surprisingly, the API components were the less difficult aspects of the lab to implement (difficult because of Redux 😬).
 
 React also went smoothly. Lab 3 gave me a good foundation for React and the React components in the lab were a nice break from the more complicated Redux.
 
@@ -31,3 +31,4 @@ None this time, unfortunately 😞.
 * [CSS3 gradient background set on body doesn't stretch but instead repeats](https://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats)
 * [How to pass data through my React router with React.js](https://stackoverflow.com/questions/45069824/how-to-pass-data-through-my-react-router-with-reactjs)
 * [React onClickOutside Package](https://github.com/Pomax/react-onclickoutside)
+* [React Children Only Expected to Receive a Single React Element Child in React Router](https://stackoverflow.com/questions/44992324/react-children-only-expected-to-receive-a-single-react-element-child-in-react-ro)

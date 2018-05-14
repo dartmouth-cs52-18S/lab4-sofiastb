@@ -53,7 +53,14 @@ class NewPost extends Component {
 
   render() {
     return (
-      <div id="new_post">
+      <div id="input_form">
+        <div className="form-text">
+          <h1>Create a New Post:</h1>
+          <div className="form-subtitle">
+            <h3>Share your ideas with the world</h3>
+            <span role="img" aria-label="ThoughtBubble">💭</span>
+          </div>
+        </div>
         <form>
           <FormGroup>
             <FormControl

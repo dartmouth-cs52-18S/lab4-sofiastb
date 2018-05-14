@@ -228,6 +228,7 @@ class Post extends Component {
         <div className="singular-post">
           {this.renderCoverPhoto()}
           {this.renderTitle()}
+          <h2>Author: {this.props.selectedPost.username}</h2>
           {this.renderContent()}
           {this.renderTags()}
         </div>
