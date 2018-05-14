@@ -21,6 +21,7 @@ class Post extends Component {
       localTitle: '',
       localContent: '',
       localTags: '',
+      authed: localStorage.getItem('token'),
     };
 
     // cover photo
@@ -74,28 +75,28 @@ class Post extends Component {
   // set editing status
   editCoverPhoto(event) {
     event.preventDefault();
-    if (!this.state.isEditingCoverPhoto) {
+    if (!this.state.isEditingCoverPhoto && this.state.authed) {
       this.setState({ isEditingCoverPhoto: true, localCoverPhoto: this.props.selectedPost.cover_url });
     }
   }
 
   editTitle(event) {
     event.preventDefault();
-    if (!this.state.isEditingTitle) {
+    if (!this.state.isEditingTitle && this.state.authed) {
       this.setState({ isEditingTitle: true, localTitle: this.props.selectedPost.title });
     }
   }
 
   editContent(event) {
     event.preventDefault();
-    if (!this.state.isEditingContent) {
+    if (!this.state.isEditingContent && this.state.authed) {
       this.setState({ isEditingContent: true, localContent: this.props.selectedPost.content });
     }
   }
 
   editTags(event) {
     event.preventDefault();
-    if (!this.state.isEditingTags) {
+    if (!this.state.isEditingTags && this.state.authed) {
       this.setState({ isEditingTags: true, localTags: this.props.selectedPost.tags });
     }
   }
