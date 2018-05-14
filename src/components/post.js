@@ -232,15 +232,17 @@ class Post extends Component {
           {this.renderContent()}
           {this.renderTags()}
         </div>
-        <div id="controls">
-          <span
-            alt="delete"
-            role="button"
-            tabIndex={-1}
-            onClick={this.delete}
-            className="lnr lnr-trash"
-          />
-        </div>
+        {(localStorage.getItem('token') !== null && (this.state.isEditingTags || this.state.isEditingTitle || this.state.isEditingContent || this.state.isEditingCoverPhoto)) &&
+          <div id="controls">
+            <span
+              alt="delete"
+              role="button"
+              tabIndex={-1}
+              onClick={this.delete}
+              className="lnr lnr-trash"
+            />
+          </div>
+        }
       </div>
     );
   }
