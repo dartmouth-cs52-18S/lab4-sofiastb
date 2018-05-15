@@ -22,6 +22,7 @@ class Post extends Component {
       localContent: '',
       localTags: '',
       authed: localStorage.getItem('token'),
+      currAuthor: (JSON.parse(localStorage.getItem('user')).id === this.props.selectedPost.author),
     };
 
     // cover photo
@@ -75,28 +76,28 @@ class Post extends Component {
   // set editing status
   editCoverPhoto(event) {
     event.preventDefault();
-    if (!this.state.isEditingCoverPhoto && this.state.authed) {
+    if (!this.state.isEditingCoverPhoto && this.state.authed && this.state.currAuthor) {
       this.setState({ isEditingCoverPhoto: true, localCoverPhoto: this.props.selectedPost.cover_url });
     }
   }
 
   editTitle(event) {
     event.preventDefault();
-    if (!this.state.isEditingTitle && this.state.authed) {
+    if (!this.state.isEditingTitle && this.state.authed && this.state.currAuthor) {
       this.setState({ isEditingTitle: true, localTitle: this.props.selectedPost.title });
     }
   }
 
   editContent(event) {
     event.preventDefault();
-    if (!this.state.isEditingContent && this.state.authed) {
+    if (!this.state.isEditingContent && this.state.authed && this.state.currAuthor) {
       this.setState({ isEditingContent: true, localContent: this.props.selectedPost.content });
     }
   }
 
   editTags(event) {
     event.preventDefault();
-    if (!this.state.isEditingTags && this.state.authed) {
+    if (!this.state.isEditingTags && this.state.authed && this.state.currAuthor) {
       this.setState({ isEditingTags: true, localTags: this.props.selectedPost.tags });
     }
   }
@@ -233,7 +234,9 @@ class Post extends Component {
           {this.renderContent()}
           {this.renderTags()}
         </div>
-        {(localStorage.getItem('token') !== null && (this.state.isEditingTags || this.state.isEditingTitle || this.state.isEditingContent || this.state.isEditingCoverPhoto)) &&
+        {(localStorage.getItem('token') !== null
+        && (this.state.isEditingTags || this.state.isEditingTitle || this.state.isEditingContent || this.state.isEditingCoverPhoto))
+        && (JSON.parse(localStorage.getItem('user')).id === this.props.selectedPost.author) &&
           <div id="controls">
             <span
               alt="delete"
@@ -252,6 +255,7 @@ class Post extends Component {
 // connects particular parts of redux state to this components props
 const mapStateToProps = state => ({
   selectedPost: state.posts.post,
+  authedUser: state.auth.user,
 });
 
 export default withRouter(connect(mapStateToProps, { fetchPost, deletePost, updatePost })(onClickOutside(Post)));

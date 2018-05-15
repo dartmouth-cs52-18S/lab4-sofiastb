@@ -9,8 +9,9 @@ export const ActionTypes = {
   AUTH_ERROR: 'AUTH_ERROR',
 };
 
+const ROOT_URL = 'https://lab5api-auth.herokuapp.com/api';
 // const ROOT_URL = 'https://lab5api.herokuapp.com/api';
-const ROOT_URL = 'http://localhost:9090/api';
+// const ROOT_URL = 'http://localhost:9090/api';
 // const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
 // const API_KEY = '?key=sofia_stanescu-bellu';
 
@@ -33,6 +34,7 @@ export function signinUser({ email, password }, history) {
     axios.post(`${ROOT_URL}/signin`, user).then((response) => {
       dispatch({ type: ActionTypes.AUTH_USER });
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
       history.push('/');
     }).catch((error) => {
       dispatch(authError(`Sign In Failed: ${error.response.data}`));
@@ -51,6 +53,8 @@ export function signupUser({ email, username, password }, history) {
     axios.post(`${ROOT_URL}/signup`, user).then((response) => {
       dispatch({ type: ActionTypes.AUTH_USER });
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      console.log(localStorage.getItem('user'));
       history.push('/');
     }).catch((error) => {
       dispatch(authError(`Sign Up Failed: ${error.response.data}`));
@@ -63,6 +67,7 @@ export function signupUser({ email, username, password }, history) {
 export function signoutUser(history) {
   return (dispatch) => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     dispatch({ type: ActionTypes.DEAUTH_USER });
     history.push('/');
   };
@@ -87,7 +92,6 @@ export function createPost(post, history) {
 
   return (dispatch) => {
     axios.post(`${ROOT_URL}/posts`, fields, { headers: { authorization: localStorage.getItem('token') } }).then((response) => {
-      console.log(response);
       history.push('/');
     }).catch((error) => {
       console.log(error);

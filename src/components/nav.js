@@ -19,7 +19,10 @@ class Nav extends Component {
           <li id="new-post-link"><NavLink className="pink-button" id="new" to="/posts/new">New post</NavLink></li>
           <li><NavLink id="title" to="/" exact>Redux</NavLink></li>
           { localStorage.getItem('token') !== null &&
-            <li onClick={() => this.props.signoutUser(this.props.history)}><NavLink id="sign-out" className="pink-button" to="/" exact>Sign out</NavLink></li>
+            <li id="auth-buttons">
+              <li id="hello">Hello, {JSON.parse(localStorage.getItem('user')).username}</li>
+              <li onClick={() => this.props.signoutUser(this.props.history)}><NavLink id="sign-out" className="pink-button" to="/" exact>Sign out</NavLink></li>
+            </li>
           }
           { localStorage.getItem('token') === null &&
             <li id="auth-buttons">
