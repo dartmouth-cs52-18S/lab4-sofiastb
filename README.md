@@ -3,7 +3,7 @@
 Sofia Stanescu-Bellu
 
 ## Description
-This is the blogging application I built for lab 4. The blog can be found at [http://thereduxblog.surge.sh/](http://thereduxblog.surge.sh/). The blog allows users to upload a post, update the post and change its cover photo, title, content (which can be styled with Markdown!🎉), and tags, and delete the post if necessary. The app uses a simple API for getting and posting the data and is a mix of Redux and React. For Lab 5 pt. 2, I added authentication and the new surge URL can be found at [http://reduxblog-api-auth.surge.sh/].
+This is the blogging application I built for lab 4. The blog can be found at [http://thereduxblog.surge.sh/](http://thereduxblog.surge.sh/). The blog allows users to upload a post, update the post and change its cover photo, title, content (which can be styled with Markdown!🎉), and tags, and delete the post if necessary. The app uses a simple API for getting and posting the data and is a mix of Redux and React. For Lab 5 pt. 2, I added authentication and the new surge URL can be found at [http://reduxblog-api-auth.surge.sh/](http://reduxblog-api-auth.surge.sh/).
 
 ### What didn't work
 Redux was rough 😅. This was the hardest lab by far and I struggled to understand the core ideas behind Redux. Reducers, containers, actions... they all felt like a foreign language when I started and I read over a lot of posts online (sourced below) and looked over the short assignment again to better comprehend this new language.
