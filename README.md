@@ -34,3 +34,4 @@ None this time (for Lab 5 or Lab 4), unfortunately 😞, butttttt for Lab 5 pt. 
 * [How to pass data through my React router with React.js](https://stackoverflow.com/questions/45069824/how-to-pass-data-through-my-react-router-with-reactjs)
 * [React onClickOutside Package](https://github.com/Pomax/react-onclickoutside)
 * [React Children Only Expected to Receive a Single React Element Child in React Router](https://stackoverflow.com/questions/44992324/react-children-only-expected-to-receive-a-single-react-element-child-in-react-ro)
+* The website UI is loosley inspired by [Medium](https://medium.com/)
