@@ -3,12 +3,14 @@
 Sofia Stanescu-Bellu
 
 ## Description
-This is the blogging application I built for lab 4. The blog can be found at [http://thereduxblog.surge.sh/](http://thereduxblog.surge.sh/). The blog allows users to upload a post, update the post and change its cover photo, title, content (which can be styled with Markdown!🎉), and tags, and delete the post if necessary. The app uses a simple API for getting and posting the data and is a mix of Redux and React.
+This is the blogging application I built for lab 4. The blog can be found at [http://thereduxblog.surge.sh/](http://thereduxblog.surge.sh/). The blog allows users to upload a post, update the post and change its cover photo, title, content (which can be styled with Markdown!🎉), and tags, and delete the post if necessary. The app uses a simple API for getting and posting the data and is a mix of Redux and React. For Lab 5 pt. 2, I added authentication and the new surge URL can be found at [http://reduxblog-api-auth.surge.sh/].
 
 ### What didn't work
 Redux was rough 😅. This was the hardest lab by far and I struggled to understand the core ideas behind Redux. Reducers, containers, actions... they all felt like a foreign language when I started and I read over a lot of posts online (sourced below) and looked over the short assignment again to better comprehend this new language.
 
 The biggest struggle for me was the flow of data – I couldn't grasp how data flowed from one section of the app to another via Redux and I needed some help from Tim to get somewhat of a hang on it. I still think I have a ways to go before I'm fully comfortable with Redux and I'm not sure I'd choose Redux over React, but this lab was certainly helpful as a crash course into this new language and its capabilities.
+
+For Lab 5 pt.2 I struggled adding all of the additional auth components and making them work together properly. As mentioned in the Lab 5 README.md, there were plenty of random errors that gave me a headache 😕.
 
 ### What worked
 The API part of the lab went pretty smoothly. It did help that I've done work with APIs in the past and I understood the basic concepts well, but surprisingly, the API components were the less difficult aspects of the lab to implement (difficult because of Redux 😬).
@@ -16,7 +18,7 @@ The API part of the lab went pretty smoothly. It did help that I've done work wi
 React also went smoothly. Lab 3 gave me a good foundation for React and the React components in the lab were a nice break from the more complicated Redux.
 
 ### Extra credit
-None this time, unfortunately 😞.
+None this time (for Lab 5 or Lab 4), unfortunately 😞, butttttt for Lab 5 pt. 2 I built upon the existing user permissions to disable editing and deleting posts to only the author of the post. That way, each user has full control over their data (#cambridgeanalytica).
 
 ## Sources
 * Tim helped me with the `mapStateToProps` for my `post.js` file and with my `posts-reducer.js`!
